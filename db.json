@@ -1,5 +1,17 @@
 {
   "data": [
-    
+    {
+      "turns": 1,
+      "faces": [
+        "2"
+      ],
+      "investments": [
+        "30"
+      ],
+      "balances": [
+        110
+      ],
+      "id": 1
+    }
   ]
 }
