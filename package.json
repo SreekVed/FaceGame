@@ -16,7 +16,7 @@
     "json-server": "^0.16.3"
   },
   "scripts": {
-    "start": "json-server db.json --static ./build",
+    "start": "json-server -p process.env.PORT db.json --static ./build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
