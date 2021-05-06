@@ -90,7 +90,7 @@ class App extends React.Component {
     this.setState({ playing: false, end: true, checked: '', images: '', diff: ''});
     document.getElementById("balance").style.color = this.state.balance >= 100 ? "lime" : "red";
 
-    fetch("http://facesgame.herokuapp.com/data", {
+    fetch("api/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
