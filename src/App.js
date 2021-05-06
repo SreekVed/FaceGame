@@ -69,7 +69,7 @@ class App extends React.Component {
 
       }
       this.setState({data: {turns : this.state.data.turns + 1, faces : this.state.data.faces, investments : this.state.data.investments, balances: this.state.data.balances}});
-      this.state.data.faces.push(this.state.checked);
+      this.state.data.faces.push(this.state.images[parseInt(this.state.checked)]);
       this.state.data.investments.push(amount);
     }
 
