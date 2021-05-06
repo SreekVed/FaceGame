@@ -23,7 +23,8 @@ class App extends React.Component {
       data: {
         turns: 0,
         faces: [],
-        amounts: []
+        investments: [],
+        balances: []
       }
     }
     this.load = this.load.bind(this);
@@ -36,7 +37,7 @@ class App extends React.Component {
     const amount = this.amount.current.value;
     document.getElementById("balance").style.color = 'white';
 
-    if (!this.state.playing) this.setState({ playing: true, end: false, balance: 100, diff: '', checked: '', images: '', data: {turns: 0, faces: [], amounts: [] }});
+    if (!this.state.playing) this.setState({ playing: true, end: false, balance: 100, diff: '', checked: '', images: '', data: {turns: 0, faces: [], investments: [], balances: [] }});
     else {
       if (amount % 1 !== 0 || amount < 1 || amount > this.state.balance) {
         alert("Invalid Amount");
@@ -54,19 +55,22 @@ class App extends React.Component {
 
       if (success) {
         const profit = Math.round(1 + (1 - this.state.images[parseInt(this.state.checked)] / 10) * amount);
-        this.setState({ balance: this.state.balance + profit, diff: 'You Gained $' + profit, color: 'lime' });
+        this.setState({ balance: this.state.balance + profit, diff: 'You Gained $' + profit, color: 'lime' }, () => {
+          this.state.data.balances.push(this.state.balance);
+        });
       }
       else {
         this.setState({ balance: this.state.balance - amount, diff: 'You Lost $' + amount, color: 'red' }, () => {
+          this.state.data.balances.push(this.state.balance);
           if (this.state.balance <= 0) {
             this.end(e);
           }
         });
 
       }
-      this.setState({data: {turns : this.state.data.turns + 1, faces : this.state.data.faces, amounts : this.state.data.amounts}});
+      this.setState({data: {turns : this.state.data.turns + 1, faces : this.state.data.faces, investments : this.state.data.investments, balances: this.state.data.balances}});
       this.state.data.faces.push(this.state.checked);
-      this.state.data.amounts.push(amount);
+      this.state.data.investments.push(amount);
     }
 
     const imgs = [];
