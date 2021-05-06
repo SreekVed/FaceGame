@@ -110,7 +110,9 @@ class App extends React.Component {
 
         <h2 style={{ display: this.state.diff === '' ? 'none' : 'inline', color: this.state.color }}>{this.state.diff}<br /></h2>
 
-        <h3 style={{ display: this.state.end ? 'inline' : 'none', color: "yellow"}}>You Invested {this.state.data.turns} {this.state.data.turns === 1 ? "Time" : "Times"}<br /><br/></h3>
+        <h3 style={{ display: this.state.end ? 'inline' : 'none', color: "yellow"}}>You Invested {this.state.data.turns} {this.state.data.turns === 1 ? "Time" : "Times"}<br/><br/></h3>
+
+        <h3 style={{ display: this.state.end ? 'inline' : 'none'}}><a href="./data">View Data</a><br/></h3>
 
         <Button variant="primary" size="lg" onClick={this.load} style={{ display: this.state.playing ? 'none' : 'inline' }}>{this.state.end ? "Play Again" : "Play"}</Button>
 
