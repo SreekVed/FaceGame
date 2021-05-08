@@ -106,6 +106,8 @@ class App extends React.Component {
 
         <p id="header">Face Game</p>
 
+        <h1 style={{ display: this.state.playing || this.state.end ? 'none' : 'inline'}}>A Strategy Game in which you can either invest your money with strangers or quit with your earnings on every turn. Find out how far your skills can take you !<br /></h1>
+
         <h1 id="balance" style={{ display: this.state.playing || this.state.end ? 'inline' : 'none'}}>{this.state.end ? "Final" : "Current"} Balance : ${this.state.balance}<br /></h1>
 
         <h2 style={{ display: this.state.diff === '' ? 'none' : 'inline', color: this.state.color }}>{this.state.diff}<br /></h2>
